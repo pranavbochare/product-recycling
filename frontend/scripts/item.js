@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("returnForm");
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
     const productName = document.getElementById("productName").value.trim();
     const category = document.getElementById("category").value;
     const weight = parseFloat(document.getElementById("weight").value);
