@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("returnForm");
 
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
     const productName = document.getElementById("productName").value.trim();
     const category = document.getElementById("category").value;
     const weight = parseFloat(document.getElementById("weight").value);
@@ -15,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isNaN(weight) || weight < 0.1) {
       return alert("Weight must be at least 0.1 kg.");
     }
-
     const formData = new FormData();
     formData.append("productName", productName);
     formData.append("category", category);
@@ -36,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (result.success) {
         alert("Return item submitted successfully ");
         form.reset();
+        fetchReturnItems(); 
       } else {
         alert(result.error || "Failed to submit the form.");
       }
@@ -44,5 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("An error occurred while submitting the form.");
     }
   });
-});
+  async function fetchReturnItems() {
+    try {
+      const res = await fetch("http://localhost:8080/item/all");
+      const data = await res.json();
 
+      console.log("Fetched return items:", data);
+
+});
