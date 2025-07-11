@@ -7,7 +7,6 @@ const { registerAdmin, loginAdmin, verifyAdmin } = require("./admin");
 const app = express();
 const port = 8080;
 
-// ✅ Increase request size limits here
 app.use(cors());
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
@@ -16,7 +15,6 @@ app.use(express.json({ limit: "50mb" }));
 connect();
 const connection = getConnection();
 
-// Routes
 app.get("/", (req, res) => {
   res.status(200).json({ status: "running" });
 });
@@ -80,7 +78,9 @@ app.post("/upload-photos", async (req, res) => {
 });
 
 app.get("/photo/:id", (req, res) => {
-  const sql = "SELECT image FROM photos WHERE id = ?";
+  console.log("server product id : ", req.params.id);
+  const product_id = req.params.id;
+  const sql = `SELECT image FROM photos WHERE product_id =${product_id}`;
   connection.query(sql, [req.params.id], (err, result) => {
     if (err || result.length === 0) return res.status(404).send("Not found");
 
@@ -119,6 +119,23 @@ app.post("/add-product", (req, res) => {
       res.json({ message: "Product saved successfully", productId: result.insertId });
     }
   );
+});
+
+app.get("/products", (req, res) => {
+  const admin_id = req.query.admin_id;
+  if (!admin_id) return res.status(400).json({ error: "Missing admin_id" });
+
+  const sql = `
+    select * from products where admin_id=${admin_id}
+  `;
+
+  connection.query(sql, [admin_id], (err, results) => {
+    if (err) {
+      console.error("Fetch error:", err);
+      return res.status(500).json({ error: "DB error" });
+    }
+    res.json(results);
+  });
 });
 
 app.listen(port, () => {
