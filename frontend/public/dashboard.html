@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Retailer Dashboard</title>
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      padding: 16px;
+      margin: 10px;
+      border-radius: 8px;
+      width: 300px;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    #cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to dashboard</h1>
-    <button id="returnedItemBtn" onclick="returnedItemsDetails()">Add Returned Item</button>
-    <script src="../scripts/dashboard.js"></script>
+  <h1>Welcome to Dashboard</h1>
+  <button id="returnedItemBtn" onclick="returnedItemsDetails()">Add Returned Item</button>
+
+  <hr>
+  <h2>Returned Items</h2>
+  <div id="cards-container"></div>
+
+  <script src="../scripts/dashboard.js"></script>
 </body>
 </html>
