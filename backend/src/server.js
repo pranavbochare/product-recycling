@@ -224,7 +224,7 @@ app.post("/predict-condition", async (req, res) => {
     weight,
     age_days,
     condition_text,
-    photos = [], // optional array of data‑URL strings
+    photos = [], 
   } = req.body;
 
   const prompt = `

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
     <title>Admin</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="auth-page">
     <h1>Retailer login</h1>
     <input id="email" type="email" name="email" placeholder="enter email">
     <input id="password" type="password" name="password" placeholder="enter password">
@@ -16,5 +16,36 @@
     </div>
 
     <script src="../scripts/admin.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Retailer Login</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="auth-page">
+  
+  <div class="container">
+    <h1 style="text-align: center; margin-bottom: 1.5rem;">Retailer Login</h1>
+    
+    <input id="email" type="email" name="email" placeholder="Enter Email" />
+    <input id="password" type="password" name="password" placeholder="Enter Password" />
+
+    <div id="register-login-btns">
+      <button id="register">Register</button>
+      <button id="login">Login</button>
+    </div>
+    
+    <p style="text-align: center; color: var(--clr-muted); margin-top: 1rem;">
+      New user? Register first!
+    </p>
+  </div>
+
+  <script src="../scripts/admin.js"></script>
 </body>
 </html>

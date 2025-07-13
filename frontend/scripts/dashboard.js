@@ -24,11 +24,13 @@ async function loadProducts() {
       card.appendChild(name);
 
       const category = document.createElement("p");
+      category.className = "category";
       category.textContent = `Category: ${product.category}`;
       card.appendChild(category);
 
       const recommendation = document.createElement("p");
-      recommendation.textContent = `Recommendation: ${product.recommendation}`;
+      recommendation.className = `recommend ${product.recommendation.toLowerCase()}`;
+      recommendation.textContent = product.recommendation;
       card.appendChild(recommendation);
 
       const removeBtn = document.createElement("button");
@@ -47,6 +49,7 @@ async function loadProducts() {
           alert("Failed to delete item");
         }
       };
+
       card.appendChild(removeBtn);
       cardsContainer.appendChild(card);
     }
@@ -77,6 +80,11 @@ async function loadCO2() {
     console.error("Error loading CO₂:", err);
   }
 }
+
+const logout = document.querySelector("#logout");
+logout.addEventListener("click", () => {
+  window.location.href = "admin.html";
+});
 
 window.onload = () => {
   loadProducts();

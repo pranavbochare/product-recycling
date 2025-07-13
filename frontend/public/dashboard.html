@@ -7,16 +7,15 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <h1>Welcome to Dashboard</h1>
   <button id="returnedItemBtn" onclick="returnedItemsDetails()">Add Returned Item</button>
 
-  <h2 id="coin-balance">Coins: 0</h2>
+  <!-- top‑right metrics bar -->
+<div id="metrics">
+  <span id="coin-balance">💰 Coins: 0</span>
+  <span id="co2-saved">🌿 CO₂ Saved: 0 kg</span>
+</div>
 
-  <h3 id="co2-saved">CO₂ Saved: 0 kg</h3>
-
-
-  <hr>
-  <h2>Returned Items</h2>
+  <button id="logout">LogOut</button>
   <div id="cards-container"></div>
 
   <script src="../scripts/dashboard.js"></script>
