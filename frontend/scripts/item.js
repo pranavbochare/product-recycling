@@ -35,7 +35,6 @@ document.getElementById("submit").addEventListener("click", async () => {
   const weight = document.getElementById("weight").value;
   const age_days = document.getElementById("productAge").value;
   const condition_text = document.getElementById("productCondition").value;
-  const recommendation = "Recycle"; // or get from model/predict API
 
   if (!name || !category || !weight || !age_days || !condition_text) {
     alert("Fill all product details");
@@ -46,6 +45,25 @@ document.getElementById("submit").addEventListener("click", async () => {
     alert("Please capture at least one image.");
     return;
   }
+
+  const aiRes = await fetch("http://localhost:8080/predict-condition", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      category,
+      weight,
+      age_days,
+      condition_text,
+      photos: capturedPhotos.slice(0, 3),
+    }),
+  });
+
+  const { recommendation, confidence } = await aiRes.json();
+  if (recommendation == "Recycle") {
+      let h3=document.querySelector("#coins");
+  }
+  console.log("Gemini says:", recommendation, confidence);
 
   try {
     const resProduct = await fetch("http://localhost:8080/add-product", {

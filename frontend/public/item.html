@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Return Item</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <div class="container">
@@ -35,7 +36,19 @@
     <input type="number" id="productAge" required /><br><br>
 
     <label for="productCondition">Condition</label>
-    <input type="text" id="productCondition" required /><br><br>
+    <select id="productCondition" required>
+      <option value="">Select Condition</option>
+      <option value="New / Unused">New / Unused</option>
+      <option value="Like New / Open Box">Like New / Open Box</option>
+      <option value="Minor Wear">Minor Wear</option>
+      <option value="Functional with Issues">Functional with Issues</option>
+      <option value="Not Working / Broken">Not Working / Broken</option>
+      <option value="Obsolete / Outdated">Obsolete / Outdated</option>
+      <option value="Hazardous">Hazardous</option>
+      <option value="Contaminated / Soiled">Contaminated / Soiled</option>
+      <option value="Unidentifiable">Unidentifiable</option>
+    </select>
+    <br><br>
 
     <video id="video" width="300" height="200" autoplay></video><br>
     <button id="click">Capture Photo</button>
