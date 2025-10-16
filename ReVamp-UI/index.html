@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReVamp — Don't just return it, Reverse it</title>
+  <meta name="description" content="ReVamp: AI-powered sustainability for smarter returns and a greener India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand" aria-label="ReVamp Home">
+        <span class="brand-mark" aria-hidden="true">
+          <!-- Leaf + recycle combined glyph -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3c-2.761 0-5 2.239-5 5 0 5 5 10 5 10s5-5 5-10c0-2.761-2.239-5-5-5z" fill="#2E7D32"/>
+            <path d="M16.5 14l1.5 2.5-2.5 1.5" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.5 10L6 7.5 8.5 6" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 6h3v3" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 18H7v-3" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">ReVamp</span>
+      </a>
+
+      
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="hero-badge">Green by Design • Made in India</span>
+        <h1>Don't just return it, <span class="accent">Reverse it</span></h1>
+        <p class="subhead">AI-powered sustainability for smarter returns and a greener India.</p>
+        <div class="hero-cta">
+          <a href="../frontend/public/admin.html" class="btn btn-primary">Login</a>
+          <a href="../frontend/public/admin.html" class="btn btn-outline">Register</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <!-- Eco illustration using simple SVG motifs -->
+        <svg viewBox="0 0 300 220" xmlns="http00/svg" class="eco-art">
+          <defs>
+            <linearGradient id="leafGrad" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#A5D6A7"/>
+              <stop offset="100%" stop-color="#66BB6A"/>
+            </linearGradient>
+          </defs>
+          <g opacity="0.9">
+            <path d="M140 40c-28 4-52 24-62 50 20-12 45-15 68-9-20 6-36 21-44 41 25 3 50-8 64-29 14-21 18-47 11-71-6 5-22 16-37 18z" fill="url(#leafGrad)"/>
+            <circle cx="220" cy="80" r="26" stroke="#2E7D32" stroke-width="3" fill="none"/>
+            <path d="M206 74l8-10 8 10" stroke="#2E7D32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M234 86l-8 10-8-10" stroke="#2E7D32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M219 57v-10m0 0h-10m10 0l-7 7" stroke="#2E7D32" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-pattern" aria-hidden="true"></div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section features">
+    <div class="container">
+      <h2 class="section-title">Features that make impact</h2>
+      <p class="section-sub">Designed for circularity with an Indian eco-touch.</p>
+      <div class="features-grid">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="icon icon-ai" aria-hidden="true"></div>
+          <h3>AI-Powered Sustainability</h3>
+          <p>Analyze returns to suggest reuse, repair, or recycle paths.</p>
+          <button class="btn btn-chip" data-alert="AI Analysis coming soon">Demo</button>
+        </article>
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="icon icon-reuse" aria-hidden="true"></div>
+          <h3>Smart Reuse</h3>
+          <p>Give products a second life through curated reuse options.</p>
+          <button class="btn btn-chip" data-alert="Reuse options coming soon">Demo</button>
+        </article>
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="icon icon-repair" aria-hidden="true"></div>
+          <h3>Repair &amp; Recycle Assistance</h3>
+          <p>Find trusted repair and recycling centers nearby.</p>
+          <button class="btn btn-chip" data-alert="Find nearest centers coming soon">Demo</button>
+        </article>
+        <!-- Card 4 -->
+        <article class="card">
+          <div class="icon icon-co2" aria-hidden="true"></div>
+          <h3>Eco-Friendly Insights</h3>
+          <p>Track CO₂ savings and environmental impact effortlessly.</p>
+          <button class="btn btn-chip" data-alert="CO₂ savings calculator coming soon">Demo</button>
+        </article>
+        <!-- Card 5 -->
+        <article class="card">
+          <div class="icon icon-reward" aria-hidden="true"></div>
+          <h3>Reward System</h3>
+          <p>Earn credits for sustainable actions and redemptions.</p>
+          <button class="btn btn-chip" data-alert="Earn credits coming soon">Demo</button>
+        </article>
+        <!-- Card 6 (list) -->
+        <article class="card card-list">
+          <h3>Other Features</h3>
+          <ul>
+            <li>Lifecycle Tracking</li>
+            <li>Partnership Ecosystem</li>
+            <li>Pickup Support</li>
+            <li>Community Hub</li>
+            <li>Notifications</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo -->
+  <section id="demo" class="section demo">
+    <div class="container">
+      <h2 class="section-title">Experience ReVamp</h2>
+      <div class="demo-panel">
+        <div class="demo-actions">
+          <button class="btn btn-primary" data-alert="Analyzing item… (demo)">Analyze Item</button>
+          <button class="btn btn-outline" data-alert="Finding repair shops… (demo)">Find Repair Shop</button>
+          <button class="btn btn-outline" data-alert="Calculating CO₂ savings… (demo)">Check CO₂ Savings</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section faq">
+    <div class="container">
+      <h2 class="section-title">FAQs</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <button class="accordion-header">What is ReVamp?</button>
+          <div class="accordion-panel">
+            <p>ReVamp helps you choose between reusing, repairing, or recycling items using AI-driven insights.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">How does AI-powered analysis work?</button>
+          <div class="accordion-panel">
+            <p>We evaluate item condition and context to suggest sustainable options and potential CO₂ savings.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Is ReVamp available across India?</button>
+          <div class="accordion-panel">
+            <p>Yes, we are expanding city by city with partner networks for repairs, pickups, and recycling centers.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Do I earn rewards?</button>
+          <div class="accordion-panel">
+            <p>Yes, sustainable actions earn credits that you can redeem with partner brands.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your Name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field full">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2025 ReVamp | Built for Smart India Hackathon</p>
+      <div class="footer-icons" aria-hidden="true">
+        <!-- Indian flag -->
+        <span class="flag" title="India" aria-label="Indian Flag">
+          <span class="flag-band saffron"></span>
+          <span class="flag-band white"><span class="chakra"></span></span>
+          <span class="flag-band green"></span>
+        </span>
+        <!-- Recycle icon -->
+        <svg viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg" class="recycle">
+          <path d="M16 3l2.5 4.33-2.16 1.25-1.5-2.6-2.6 1.5L16 3zM7.66 9.08L9.16 6.5l2.6 1.5-1.5 2.6 2.16 1.25L10 16l-2.5-4.33 2.16-1.25zM18 14l2.5 4.33H16L18 14zM6 14l2 3.5H3.5L6 14z" fill="#2E7D32"/>
+        </svg>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chatbot Widget -->
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat">💬</button>
+  <div class="chatbot" id="chatbot" aria-live="polite" aria-label="ReVamp Assistant" hidden>
+    <div class="chat-header">
+      <strong>ReVamp Assistant</strong>
+      <button class="chat-close" id="chatClose" aria-label="Close chat">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot">Namaste! Ask me about ReVamp, features, or CO₂ savings.</div>
+    </div>
+    <form class="chat-input" id="chatForm">
+      <input type="text" id="chatMessage" placeholder="Type your question..." autocomplete="off" required />
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+<noscript>ReVamp works best with JavaScript enabled.</noscript>
+</html>
+
+

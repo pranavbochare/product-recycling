@@ -4,9 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Retailer Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../ReVamp-UI/styles.css" />
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../../ReVamp-UI/index.html" class="brand" aria-label="ReVamp Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3c-2.761 0-5 2.239-5 5 0 5 5 10 5 10s5-5 5-10c0-2.761-2.239-5-5-5z" fill="#2E7D32"/>
+            <path d="M16.5 14l1.5 2.5-2.5 1.5" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.5 10L6 7.5 8.5 6" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 6h3v3" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 18H7v-3" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">ReVamp</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="item.html">Add Return</a>
+        <a href="#" id="logoutNav">Logout</a>
+      </nav>
+    </div>
+  </header>
   <button id="returnedItemBtn" onclick="returnedItemsDetails()">Add Returned Item</button>
 
   <!-- top‑right metrics bar -->
@@ -15,8 +40,8 @@
   <span id="co2-saved">🌿 CO₂ Saved: 0 kg</span>
 </div>
 
-  <button id="logout">LogOut</button>
   <div id="cards-container"></div>
+
 
   <script src="../scripts/dashboard.js"></script>
 </body>

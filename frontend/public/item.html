@@ -4,9 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Return Item</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../ReVamp-UI/styles.css" />
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../../ReVamp-UI/index.html" class="brand"><span class="brand-text">ReVamp</span></a>
+      <nav class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="item.html">Add Return</a>
+        <a href="#" id="logoutNav">Logout</a>
+      </nav>
+    </div>
+  </header>
   <div class="container">
     <h2>Add Return Details</h2>
 
@@ -60,8 +74,10 @@
     </select>
     <br><br>
 
-    <video id="video" width="300" height="200" autoplay></video><br>
-    <button id="click">Capture Photo</button>
+    <label for="photos">Upload Product Photos</label>
+    <br>
+    <br>
+    <input type="file" id="photos" accept="image/*" multiple /><br>
     <div id="photoList"></div><br><br>
 
     <button type="submit" id="submit">Submit</button>

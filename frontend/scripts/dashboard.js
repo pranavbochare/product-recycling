@@ -51,6 +51,20 @@ async function loadProducts() {
       };
 
       card.appendChild(removeBtn);
+      card.addEventListener("click", (e) => {
+        if (e.target === removeBtn) return;
+        const recommendation = (product.recommendation || "").toLowerCase();
+        let target = "repair.html";
+        if (recommendation === "recycle") target = "recycle.html";
+        if (recommendation === "reuse") target = "reuse.html";
+        const params = new URLSearchParams({
+          id: String(product.id),
+          name: product.name,
+          category: product.category,
+          rec: product.recommendation,
+        });
+        window.location.href = `${target}?${params.toString()}`;
+      });
       cardsContainer.appendChild(card);
     }
   } catch (error) {
@@ -81,13 +95,20 @@ async function loadCO2() {
   }
 }
 
-const logout = document.querySelector("#logout");
-logout.addEventListener("click", () => {
-  window.location.href = "admin.html";
-});
+const logoutButton = document.querySelector("#logout") || document.querySelector("#logoutNav");
+if (logoutButton) {
+  logoutButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    localStorage.removeItem("admin_id");
+    window.location.href = "admin.html";
+  });
+}
 
 window.onload = () => {
   loadProducts();
   loadCoins();
   loadCO2();
 };
+
+// Modal logic removed; navigation handled per-card

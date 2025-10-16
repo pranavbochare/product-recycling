@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recycle Suggestions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../ReVamp-UI/styles.css" />
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../../ReVamp-UI/index.html" class="brand" aria-label="ReVamp Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3c-2.761 0-5 2.239-5 5 0 5 5 10 5 10s5-5 5-10c0-2.761-2.239-5-5-5z" fill="#2E7D32"/>
+            <path d="M16.5 14l1.5 2.5-2.5 1.5" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.5 10L6 7.5 8.5 6" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 6h3v3" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 18H7v-3" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">ReVamp</span>
+      </a>
+      <nav class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="item.html">Add Return</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" id="title">Recycle Options</h2>
+      <p class="section-sub" id="subtitle"></p>
+      <div class="features-grid">
+        <article class="card">
+          <h3>Certified Partner</h3>
+          <p>Environmentally compliant recycling.</p>
+          <ul style="margin:8px 0 12px 18px; color: var(--clr-muted);">
+            <li>EcoCycle Certified Center — MG Road</li>
+            <li>GreenLoop Recycling Hub — Baner</li>
+            <li>Renew E‑Waste Partner — Hinjawadi</li>
+          </ul>
+          <button class="btn btn-chip">Schedule Pickup</button>
+        </article>
+        <article class="card">
+          <h3>Drop-off Center</h3>
+          <p>Nearest location for safe disposal.</p>
+          <ul style="margin:8px 0 12px 18px; color: var(--clr-muted);">
+            <li>City E-Waste Drop Point — Shivaji Nagar</li>
+            <li>CleanGreen Collection Booth — Kothrud Depot</li>
+            <li>Municipal Hazard-Free Bin — FC Road</li>
+            <li><strong>Timing</strong>: 9:00 AM – 6:00 PM (Mon–Sat)</li>
+            <li><strong>Bring</strong>: Item, basic ID, and proof of purchase (optional)</li>
+          </ul>
+          <button class="btn btn-chip">View Details</button>
+        </article>
+        <article class="card">
+          <h3>Earn Eco Credits</h3>
+          <p>Track CO₂ savings and rewards.</p>
+          <button class="btn btn-chip">Learn More</button>
+        </article>
+      </div>
+      <div style="margin-top:20px; border:1px solid var(--clr-border); border-radius:14px; overflow:hidden; box-shadow: var(--shadow);">
+        <iframe id="map" width="100%" height="360" style="border:0;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name') || 'Item';
+    const rec = params.get('rec') || 'Recycle';
+    document.getElementById('title').textContent = `${rec} Options`;
+    document.getElementById('subtitle').textContent = `${name} • Tailored suggestions for recycling.`;
+    const map = document.getElementById('map');
+    map.src = `https://www.google.com/maps?q=${encodeURIComponent('recycling centers near me')}&output=embed`;
+  </script>
+</body>
+</html>
+
+

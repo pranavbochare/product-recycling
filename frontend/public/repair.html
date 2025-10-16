@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Repair Suggestions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../ReVamp-UI/styles.css" />
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../../ReVamp-UI/index.html" class="brand" aria-label="ReVamp Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3c-2.761 0-5 2.239-5 5 0 5 5 10 5 10s5-5 5-10c0-2.761-2.239-5-5-5z" fill="#2E7D32"/>
+            <path d="M16.5 14l1.5 2.5-2.5 1.5" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.5 10L6 7.5 8.5 6" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 6h3v3" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 18H7v-3" stroke="#2E7D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">ReVamp</span>
+      </a>
+      <nav class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="item.html">Add Return</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" id="title">Repair Options</h2>
+      <p class="section-sub" id="subtitle"></p>
+      <div class="features-grid">
+        <article class="card">
+          <h3>Authorized Service Center</h3>
+          <p>Genuine parts and trained technicians.</p>
+          <ul style="margin:8px 0 12px 18px; color: var(--clr-muted);">
+            <li>SmartFix Authorized — Deccan Gymkhana</li>
+            <li>PrimeCare Service Hub — Aundh</li>
+            <li>TechTrust Repair Point — Kharadi</li>
+            <li>UrbanGadget Care — Camp</li>
+          </ul>
+          <button class="btn btn-chip">Book Appointment</button>
+        </article>
+        <article class="card">
+          <h3>Technician Visit</h3>
+          <p>On-site inspection and minor fixes.</p>
+          <button class="btn btn-chip">Request Visit</button>
+        </article>
+        <article class="card">
+          <h3>Cost Estimate</h3>
+          <p>Estimated turnaround: 2–3 days.</p>
+          <button class="btn btn-chip">Get Estimate</button>
+        </article>
+      </div>
+      <div style="margin-top:20px; border:1px solid var(--clr-border); border-radius:14px; overflow:hidden; box-shadow: var(--shadow);">
+        <iframe id="map" width="100%" height="360" style="border:0;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name') || 'Item';
+    console.log(name);
+    const rec = params.get('rec') || 'Repair';
+    document.getElementById('title').textContent = `${rec} Options`;
+    document.getElementById('subtitle').textContent = `${name} • Tailored suggestions for repair.`;
+    const map = document.getElementById('map');
+    map.src = `https://www.google.com/maps?q=${encodeURIComponent('${name} repair centers near me')}&output=embed`;
+  </script>
+</body>
+</html>
+
+

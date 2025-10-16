@@ -1,33 +1,42 @@
-const video = document.getElementById("video");
 const photoList = document.getElementById("photoList");
 const capturedPhotos = [];
 
 const adminId = localStorage.getItem("admin_id");
 
-navigator.mediaDevices
-  .getUserMedia({ video: true })
-  .then((stream) => {
-    video.srcObject = stream;
-  })
-  .catch((err) => {
-    console.error("Camera error:", err);
+const logoutButton = document.querySelector("#logout") || document.querySelector("#logoutNav");
+if (logoutButton) {
+  logoutButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    localStorage.removeItem("admin_id");
+    window.location.href = "admin.html";
   });
+}
 
-document.getElementById("click").addEventListener("click", () => {
-  const canvas = document.createElement("canvas");
-  canvas.width = 300;
-  canvas.height = 200;
-  const ctx = canvas.getContext("2d");
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+const fileInput = document.getElementById("photos");
+if (fileInput) {
+  fileInput.addEventListener("change", async (e) => {
+    const files = Array.from(e.target.files || []).slice(0, 5);
+    photoList.innerHTML = "";
+    for (const file of files) {
+      const dataUrl = await toDataURL(file);
+      capturedPhotos.push(dataUrl);
+      const img = document.createElement("img");
+      img.src = dataUrl;
+      img.width = 100;
+      photoList.appendChild(img);
+    }
+  });
+}
 
-  const imageData = canvas.toDataURL("image/png");
-  capturedPhotos.push(imageData);
-
-  const img = document.createElement("img");
-  img.src = imageData;
-  img.width = 100;
-  photoList.appendChild(img);
-});
+function toDataURL(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
 
 document.getElementById("submit").addEventListener("click", async () => {
   const name = document.getElementById("productName").value;
@@ -42,7 +51,7 @@ document.getElementById("submit").addEventListener("click", async () => {
   }
 
   if (capturedPhotos.length === 0) {
-    alert("Please capture at least one image.");
+    alert("Please upload at least one image.");
     return;
   }
 
@@ -60,9 +69,6 @@ document.getElementById("submit").addEventListener("click", async () => {
   });
 
   const { recommendation, confidence } = await aiRes.json();
-  if (recommendation == "Recycle") {
-      let h3=document.querySelector("#coins");
-  }
   console.log("Gemini says:", recommendation, confidence);
 
   try {
@@ -83,6 +89,7 @@ document.getElementById("submit").addEventListener("click", async () => {
     const productId = productResponse.productId;
 
     console.log("product id : ", productId);
+    console.log("product : ", productResponse);
 
     if (!productId) throw new Error("Product insert failed");
 
@@ -99,6 +106,13 @@ document.getElementById("submit").addEventListener("click", async () => {
     console.log("image response :", imageUploadResponse);
 
     alert("Product and images saved!");
+    // if (recommendation == "Recycle") {
+    //   window.location.href = "recycle.html";
+    // } else if (recommendation == "Reuse") {
+    //   window.location.href = "reuse.html";
+    // } else if (recommendation == "Repair") {
+    //   window.location.href = "repair.html";
+    // }
     window.location.href = "dashboard.html";
   } catch (err) {
     console.error("Submit error:", err);
